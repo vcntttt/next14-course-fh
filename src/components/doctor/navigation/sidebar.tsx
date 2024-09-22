@@ -1,16 +1,15 @@
-"use client";
 import { SquareActivityIcon } from "lucide-react";
 import Link from "next/link";
-import clsx from "clsx";
-import { usePathname } from "next/navigation";
-import { navLinks } from "./nav-links";
-import Image from "next/image";
-import { useAuthStore } from "@/store/user";
+import SidebarItem from "./sidebar-item";
+import DoctorProfile from './doctor-profile';
+import { Calendar, LayoutDashboardIcon } from "lucide-react";
+
+const navLinks = [
+  { path: "/doctor", label: "Dashboard", icon: <LayoutDashboardIcon  className="size-4"/> },
+  { path: "/doctor/agenda", label: "Agenda", icon: <Calendar className="size-4"/> },
+];
 
 export default function Sidebar() {
-  const pathname = usePathname();
-  const { user } = useAuthStore();
-
   return (
     <div className="hidden border-r shadow-xl md:block h-screen">
       <div className="flex h-full max-h-screen flex-col gap-2 mt-2">
@@ -21,39 +20,15 @@ export default function Sidebar() {
             <span>Agenda Médica</span>
           </Link>
           </div>
-        <div id="profile" className="py-4">
-            <Image
-              src="/person.png"
-              alt="Avatar user"
-              width={50}
-              height={100}
-              className="w-10 md:w-16 rounded-full mx-auto"
-            />
-            <div>
-              <h2 className="font-medium text-xs md:text-sm text-center text-teal-500">
-                {user.name}
-              </h2>
-              <p className="text-xs text-gray-500 text-center">{user.role}</p>
-            </div>
-          </div>
+        <DoctorProfile/>
         </header>
         <div className="flex-1">
           <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
-            {navLinks.map((section) => (
-              <Link
-                key={section.href}
-                href={section.href}
-                className={clsx(
-                  "py-2 px-2 rounded-md transition duration-100 hover:text-base",
-                  {
-                    "bg-teal-500 text-white": pathname === section.href,
-                    "text-black/50 hover:text-black": pathname !== section.href,
-                  }
-                )}
-              >
-                <section.icon className="h-4 w-4" />
-                {section.label}
-              </Link>
+            {navLinks.map((link) => (
+              <SidebarItem
+                key={link.path}
+                {...link}
+              />
             ))}
           </nav>
         </div>

@@ -1,10 +1,14 @@
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "../../ui/button";
-import { Menu } from "lucide-react";
+import { Calendar, LayoutDashboardIcon, Menu } from "lucide-react";
 import Link from "next/link";
-import { navLinks } from "./nav-links";
 
-export default function MobileHeader() {
+const navLinks = [
+  { path: "/doctor", label: "Dashboard", icon: <LayoutDashboardIcon  className="size-4"/> },
+  { path: "/doctor/agenda", label: "Agenda", icon: <Calendar className="size-4"/> },
+];
+
+export default function MobileHeader( ) {
   return (
     <header className="md:hidden flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
     <Sheet>
@@ -29,15 +33,15 @@ export default function MobileHeader() {
           {navLinks.map((section) => (
             <Link
               key={section.label}
-              href={section.href}
+              href={section.path}
               className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
             >
-              <section.icon className="h-6 w-6" />
+              {section.icon}
               {section.label}
             </Link>
           ))}
         </nav>
-        <div className="mt-auto flex flex-col gap-y-4">Footer</div>
+        <div className="mt-auto flex flex-col gap-y-4 sr-only">Footer</div>
       </SheetContent>
     </Sheet>
   </header>
