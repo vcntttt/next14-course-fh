@@ -14,7 +14,7 @@ interface Store {
 export const useAuthStore = create<Store>()(devtools((set) => ({  
   user: {
     name: 'Vicente Rivera',
-    role: 'Doctor',
+    role: 'Developer',
   },
   setUser: (user: User) => set({ user }, false, "setUser"),
 })));

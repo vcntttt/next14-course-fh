@@ -1,5 +1,5 @@
-import Sidebar from "@/components/doctor/navigation/sidebar";
-import MobileHeader from "@/components/doctor/navigation/mobile-header";
+import Sidebar from "@/components/dashboard/navigation/sidebar";
+import MobileHeader from "@/components/dashboard/navigation/mobile-header";
 
 export default function DoctorDashboardLayout({
   children,

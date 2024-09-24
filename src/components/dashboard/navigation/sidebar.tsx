@@ -2,11 +2,11 @@ import { SquareActivityIcon } from "lucide-react";
 import Link from "next/link";
 import SidebarItem from "./sidebar-item";
 import DoctorProfile from './doctor-profile';
-import { Calendar, LayoutDashboardIcon } from "lucide-react";
+import { Gamepad, LayoutDashboardIcon } from "lucide-react";
 
 const navLinks = [
-  { path: "/doctor", label: "Dashboard", icon: <LayoutDashboardIcon  className="size-4"/> },
-  { path: "/doctor/agenda", label: "Agenda", icon: <Calendar className="size-4"/> },
+  { path: "/dashboard", label: "Dashboard", icon: <LayoutDashboardIcon  className="size-4"/> },
+  { path: "/dashboard/pokemon", label: "Pokemon", icon: <Gamepad className="size-4"/> },
 ];
 
 export default function Sidebar() {
@@ -17,7 +17,7 @@ export default function Sidebar() {
           <div className="flex h-14 justify-between items-center px-4 lg:h-[60px] lg:px-6 text-black">
           <Link href="/" className="flex items-center gap-2 font-semibold">
             <SquareActivityIcon className="h-8 w-8" />
-            <span>Agenda Médica</span>
+            <span>Data Fetching Tutorial</span>
           </Link>
           </div>
         <DoctorProfile/>

@@ -1,11 +1,11 @@
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "../../ui/button";
-import { Calendar, LayoutDashboardIcon, Menu } from "lucide-react";
+import { Gamepad, LayoutDashboardIcon, Menu } from "lucide-react";
 import Link from "next/link";
 
 const navLinks = [
-  { path: "/doctor", label: "Dashboard", icon: <LayoutDashboardIcon  className="size-4"/> },
-  { path: "/doctor/agenda", label: "Agenda", icon: <Calendar className="size-4"/> },
+  { path: "/dashboard", label: "Dashboard", icon: <LayoutDashboardIcon  className="size-4"/> },
+  { path: "/dashboard/pokemon", label: "Pokemon", icon: <Gamepad className="size-4"/> },
 ];
 
 export default function MobileHeader( ) {
