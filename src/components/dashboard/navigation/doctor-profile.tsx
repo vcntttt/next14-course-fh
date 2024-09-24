@@ -15,7 +15,7 @@ export default function DoctorProfile() {
       className="w-10 md:w-16 rounded-full mx-auto"
     />
     <div>
-      <h2 className="font-medium text-xs md:text-sm text-center text-teal-500">
+      <h2 className="font-medium text-xs md:text-sm text-center text-red-600">
         {user.name}
       </h2>
       <p className="text-xs text-gray-500 text-center">{user.role}</p>

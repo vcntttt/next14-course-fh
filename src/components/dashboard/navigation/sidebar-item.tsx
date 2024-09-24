@@ -20,7 +20,7 @@ export default function SidebarItem({ path, label, icon }: Props) {
       className={clsx(
         "py-2 px-2 rounded-md transition duration-100 hover:text-base",
         {
-          "bg-teal-500 text-white": pathname === path,
+          "bg-red-500 text-white": pathname === path,
           "text-black/50 hover:text-black": pathname !== path,
         }
       )}
