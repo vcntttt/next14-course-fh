@@ -1,5 +1,4 @@
 import Sidebar from "@/components/dashboard/navigation/sidebar";
-import MobileHeader from "@/components/dashboard/navigation/mobile-header";
 
 export default function DoctorDashboardLayout({
   children,
@@ -7,10 +6,9 @@ export default function DoctorDashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
+    <div className="grid w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr] gap-4 h-screen overflow-y-scroll">
       <Sidebar/>
       <div className="flex flex-col">
-        <MobileHeader/>
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
           {children}
         </main>

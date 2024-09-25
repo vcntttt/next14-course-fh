@@ -1,4 +1,4 @@
-import { SquareActivityIcon } from "lucide-react";
+import { Heart, SquareActivityIcon } from "lucide-react";
 import Link from "next/link";
 import SidebarItem from "./sidebar-item";
 import DoctorProfile from './doctor-profile';
@@ -7,12 +7,13 @@ import { Gamepad, LayoutDashboardIcon } from "lucide-react";
 const navLinks = [
   { path: "/dashboard", label: "Dashboard", icon: <LayoutDashboardIcon  className="size-4"/> },
   { path: "/dashboard/pokemon", label: "Pokemon", icon: <Gamepad className="size-4"/> },
+  { path: "/dashboard/favorites", label: "Favoritos", icon: <Heart className="size-4"/> },
 ];
 
 export default function Sidebar() {
   return (
-    <div className="hidden border-r shadow-xl md:block h-screen">
-      <div className="flex h-full max-h-screen flex-col gap-2 mt-2">
+    <div className="hidden border-r shadow-xl md:block min-h-screen overflow-y-hidden">
+      <div className="flex h-full flex-col gap-2 mt-2">
         <header className="">
           <div className="flex h-14 justify-between items-center px-4 lg:h-[60px] lg:px-6 text-black">
           <Link href="/" className="flex items-center gap-2 font-semibold">

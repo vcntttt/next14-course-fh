@@ -1,9 +1,5 @@
-import type {
-  PokemonResponse,
-  Result,
-  SimplePokemon,
-} from "@/components/pokemons/pokemons-response";
-import Image from "next/image";
+import PokemonCard from "@/components/pokemons/card";
+import type { PokemonResponse, Result, SimplePokemon } from "@/types/pokemons";
 
 const getPokemons = async (
   limit = 20,
@@ -22,24 +18,15 @@ const getPokemons = async (
 };
 
 export default async function PokemonPage() {
-  const pokemons = await getPokemons();
+  const pokemons = await getPokemons(151);
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-4xl font-semibold">Pokemons</h1>
-      {pokemons.map((pokemon) => (
-        <div key={pokemon.id} className="flex gap-4 items-center">
-          <Image
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
-            alt={pokemon.name}
-            className="h-10 w-10 rounded-full"
-            width={100}
-            height={100}
-          />
-          <div>
-            <h2 className="text-xl font-semibold">{pokemon.name}</h2>
-          </div>
-        </div>
-      ))}
+      <div className="flex flex-wrap gap-4">
+        {pokemons.map((pokemon) => (
+          <PokemonCard key={pokemon.id} pokemon={pokemon} />
+        ))}
+      </div>
     </div>
   );
 }
