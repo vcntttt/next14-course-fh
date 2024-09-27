@@ -1,4 +1,4 @@
-import PokemonCard from "@/components/pokemons/card";
+import PokemonGrid from "@/components/pokemons/grid";
 import type { PokemonResponse, Result, SimplePokemon } from "@/types/pokemons";
 
 const getPokemons = async (
@@ -22,11 +22,7 @@ export default async function PokemonPage() {
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-4xl font-semibold">Pokemons</h1>
-      <div className="flex flex-wrap gap-4">
-        {pokemons.map((pokemon) => (
-          <PokemonCard key={pokemon.id} pokemon={pokemon} />
-        ))}
-      </div>
+      <PokemonGrid pokemons={pokemons} />
     </div>
   );
 }
